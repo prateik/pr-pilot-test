@@ -1,36 +1,36 @@
 from flask import Flask, request, jsonify
-from calc import Calculator
+from calculator import Calculator
 
 app = Flask(__name__)
-calc = Calculator()
+calculator = Calculator()
 
-@app.route('/add', methods=['GET'])
+@app.route('/add')
 def add():
     a = float(request.args.get('a'))
     b = float(request.args.get('b'))
-    result = calc.add(a, b)
+    result = calculator.add(a, b)
     return jsonify(result=result)
 
-@app.route('/subtract', methods=['GET'])
+@app.route('/subtract')
 def subtract():
     a = float(request.args.get('a'))
     b = float(request.args.get('b'))
-    result = calc.subtract(a, b)
+    result = calculator.subtract(a, b)
     return jsonify(result=result)
 
-@app.route('/multiply', methods=['GET'])
+@app.route('/multiply')
 def multiply():
     a = float(request.args.get('a'))
     b = float(request.args.get('b'))
-    result = calc.multiply(a, b)
+    result = calculator.multiply(a, b)
     return jsonify(result=result)
 
-@app.route('/divide', methods=['GET'])
+@app.route('/divide')
 def divide():
     a = float(request.args.get('a'))
     b = float(request.args.get('b'))
     try:
-        result = calc.divide(a, b)
+        result = calculator.divide(a, b)
     except ValueError as e:
         return jsonify(error=str(e)), 400
     return jsonify(result=result)
