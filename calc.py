@@ -13,6 +13,7 @@ class Calculator:
             raise ValueError("Cannot divide by zero")
         return a / b
 
+
 if __name__ == "__main__":
     calc = Calculator()
     print("Addition: 5 + 3 =", calc.add(5, 3))
